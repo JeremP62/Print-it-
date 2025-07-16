@@ -34,6 +34,8 @@ slides.forEach((_, index) => {
 
 const dots = document.querySelectorAll(".dot");
 
+
+
 //Fonction d'affichage
 
 function showSlide(index) {
@@ -48,6 +50,7 @@ dots.forEach((dot, i) => {
       dot.classList.add("dot_selected");
     }
   });
+  console.log('Dots sélectionnés:', [...dots].map(dot => dot.classList.contains('dot_selected')));
 }
 
   // flèches
@@ -61,6 +64,12 @@ document.getElementById("next").addEventListener("click", () => {
   currentIndex = (currentIndex + 1) % slides.length;
   showSlide(currentIndex);
 });
+
+
+setInterval(() => {
+  currentIndex = (currentIndex + 1) % slides.length;
+  showSlide(currentIndex);
+}, 6000); // LE TIMER 
 
 // initial ===
 showSlide(currentIndex);
